@@ -1,0 +1,38 @@
+<div id="modalHeader">
+    <h2 mat-dialog-title style="color:white;"> Enter Values</h2>
+</div>
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field style="margin-left: 20px;">
+    <mat-label>Start</mat-label>
+    <!-- <input matInput type="number" placeholder="Value 1" [(ngModel)]="data.value1" > -->
+    <input matInput type="number" placeholder="Start" [formControl]="start" required >
+  </mat-form-field>
+  <mat-form-field style="margin-left: 20px;">
+    <mat-label>Amount</mat-label>
+    <!-- <input matInput type="number" placeholder="Value 2" [(ngModel)]="data.value2" > -->
+    <input matInput type="number" placeholder="Amount" [formControl]="amount" required >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions >
+  <button mat-raised-button  
+          *ngIf="data.button == 'Add'" 
+          style="background: green; color: white;"
+          (click)="addValues(start.value, amount.value)">
+          Add
+  </button>
+  <button mat-raised-button
+          *ngIf="data.button == 'Subtract'" 
+          style="background: green; color: white;"
+          (click)="subtractValues(start.value, amount.value)">
+          Subtract
+  </button>
+  <button mat-raised-button  
+          (click)="changeColor()" 
+          style="margin-right: 10px;">
+          Color
+  </button>
+  <!-- <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial style="margin-left: 10px; background: red; color: white;">X</button> -->
+</div>
+<div id="footer-wrapper">
+  <span id="modalFooter">Score: {{ score }}</span>
+</div>
